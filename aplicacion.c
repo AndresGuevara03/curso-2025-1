@@ -6,6 +6,8 @@
 //La funcion main es el entry point de un ejecutable de lenguaje c
 
 int main(){
-	printf("\nHola mundo!\n");
-	return 0;
+        printf("\nHola mundo!\n");
+        return 0;
 }
+
+
