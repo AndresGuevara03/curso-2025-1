@@ -9,7 +9,7 @@ main:
 	subq $8, %rsp   #Alineacion de datos
 	xorq %rbx, %rbx         # rbx=0
         # Bloque de impresion
-        # printf("%ld \n", rax);
+        # printf("%ld \n", rbx);
         #           rdi  , rsi
 dowhile:
 	addq $1, %rbx
