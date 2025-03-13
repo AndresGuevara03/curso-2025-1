@@ -7,18 +7,22 @@ mensaje: .asciz "%ld \n"
 
 main:
 	subq $8, %rsp   #Alineacion de datos
-	xorq %rbx, %rbx         # rbx=0
-        # Bloque de impresion
+	xorq %rbx, %rbx         # rbx=0, rbx y no rax ya que printf usa rax y le asigna 3 al finalizar
+
+dowhile:			# inicio del ciclo
+	incq %rbx		# rbx++
+	# Bloque de impresion
         # printf("%ld \n", rbx);
         #           rdi  , rsi
-dowhile:
-	addq $1, %rbx
 	movq $mensaje, %rdi
         movq %rbx, %rsi
 	xorq %rax, %rax         # rax=0
 	call printf
-	cmpq $10, %rbx
-	JL dowhile
+	cmpq $10, %rbx		# resta 10 con rbx pero no guarda el resultado en rbx
+				# solo hace la operacion alterando el registro de banderas
+				# para rbx < 10 activara el bit de CF en el registro eflags
+				# para rbx = 10 significara 10-10=0 lo que activara ZF y no CF en este caso no salta
+	JB dowhile		# salto al inicio del ciclo
 	addq $8, %rsp   # Alineacion de datos original
         # Salir del sistema
 	mov $60, %rax   # Indico que vamos a usar la funcion exit
