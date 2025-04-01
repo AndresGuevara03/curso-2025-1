@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double taylor(double);
+double seno(double);
 double toRadians(double degree);
 int main(){
-	double resultado = 0.0F;
+	double resultado = 0.0;
 	double x;
 	double flag = 1.0;
 	scanf("%lf", &x);
 	x = toRadians(x);
-	resultado = taylor(x);
+	resultado = seno(x);
 	printf("%lf\r\n",resultado);
 	return 0;
 }
