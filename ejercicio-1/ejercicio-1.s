@@ -2,7 +2,7 @@ negative: .double -1
 uno: .double 1
 dos: .double 2
 tres: .double 3
-limite: .double 13
+limite: .double 15
 .text
 .global seno
 .global factorial
